@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Sales Force",
+    "version": "0.0.1",
+    "description": "",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://deliveryhero.lightning.force.com/lightning/*/Case/*"
+            ],
+            "js": ["content.js"]
+        },
+        {
+            "matches": [
+                "https://www.foodpanda.co.th/*",
+                "https://www.foodpanda.my/*",
+                "https://www.foodpanda.com.mm/*",
+                "https://www.foodpanda.com.kh/*",
+                "https://www.foodpanda.la/*"
+            ],
+            "js": ["panda.js"]
+        }
+    ],
+    "permissions": ["activeTab", "debugger", "scripting", "tabs"],
+    "icons": {
+        "128": "icon.png"
+    }
+}
